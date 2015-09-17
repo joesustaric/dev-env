@@ -16,11 +16,15 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     # Customize the amount of memory on the VM:
-    vb.memory = "1024" # 1 gig?
+    vb.memory = 2048 
     vb.cpus = 2
   end
 
   config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "~/.ssh/id_rsa"
+
+  config.vm.provision :ansible do |a|
+    a.playbook = "playbook.yml"
+  end
 
   config.ssh.forward_agent = true
   # config.vm.provision :shell, path: "bootstrap.sh"

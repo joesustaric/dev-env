@@ -1,0 +1,27 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Upgrade All Packages
+      yum: name=* state=latest
+      sudo: true
+
+    - name: Install random tools
+      yum: name={{ item }} state=present update_cache=yes
+      with_items:
+        - epel-release
+        - git
+      sudo: true
+
+    - name: Install npm and node via EPEL yum repo
+      yum: name=npm enablerepo=epel state=present
+      sudo: true
+
+    - name: Download Golang 1.5 (not in yum yet)
+      get_url: url=https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz dest=/vagrant/go1.5.linux-amd64.tar.gz
+    - name: Install Golang
+      command: tar -C /usr/local -xzf /vagrant/go1.5.linux-amd64.tar.gz
+      sudo: true
+    - name: Add Golang to the PATH
+      lineinfile: dest=/home/vagrant/.bashrc  line="PATH=$PATH:/usr/local/go/bin"
+      # GOPATH?
