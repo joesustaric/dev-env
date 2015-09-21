@@ -11,6 +11,11 @@
       with_items:
         - epel-release
         - git
+        - zsh
+        - wget
+        - vim
+        - bzip2
+        - net-tools
       sudo: true
 
     - name: Install npm and node via EPEL yum repo
@@ -19,9 +24,11 @@
 
     - name: Download Golang 1.5 (not in yum yet)
       get_url: url=https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz dest=/vagrant/go1.5.linux-amd64.tar.gz
+
     - name: Install Golang
       command: tar -C /usr/local -xzf /vagrant/go1.5.linux-amd64.tar.gz
       sudo: true
-    - name: Add Golang to the PATH
-      lineinfile: dest=/home/vagrant/.bashrc  line="PATH=$PATH:/usr/local/go/bin"
-      # GOPATH?
+
+    - name: post install script
+      script: post_install.sh
+      sudo: true
