@@ -30,3 +30,17 @@ fi
 git config --global push.default simple
 git config --global core.editor "vim"
 #----------------------------------------------------------
+
+#Chruby Config---------------------------------------------
+echo "#--Chruby--------------------------------" >> /home/vagrant/.bash_profile
+echo "source /usr/local/share/chruby/chruby.sh" >> /home/vagrant/.bash_profile
+echo "source /usr/local/share/chruby/auto.sh" >> /home/vagrant/.bash_profile
+echo "#----------------------------------------" >> /home/vagrant/.bash_profile
+
+if [ -f /home/vagrant/.zshrc ]; then
+  echo "#--Chruby--------------------------------" >> /home/vagrant/.zshrc
+  echo "source /usr/local/share/chruby/chruby.sh" >> /home/vagrant/.zshrc
+  echo "source /usr/local/share/chruby/auto.sh" >> /home/vagrant/.zshrc
+  echo "#----------------------------------------" >> /home/vagrant/.zshrc
+fi
+#--------------------------------------------------------------
