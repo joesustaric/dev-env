@@ -12,14 +12,13 @@ Vagrant.configure(2) do |config|
   config.ssh.username = "vagrant"
   config.ssh.password = "vagrant"
 
-  config.vm.synced_folder "./code", "/vagrant/code"
-
   config.vm.provider "virtualbox" do |vb|
     # Customize the amount of memory on the VM:
-    vb.memory = 2048 
+    vb.memory = 2048
     vb.cpus = 2
   end
 
+  config.vm.synced_folder "~/projects", "/vagrant/projects"
   config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "~/.ssh/id_rsa"
 
   config.vm.provision :ansible do |a|
@@ -27,5 +26,4 @@ Vagrant.configure(2) do |config|
   end
 
   config.ssh.forward_agent = true
-  # config.vm.provision :shell, path: "bootstrap.sh"
 end

@@ -14,7 +14,7 @@ chsh -s /bin/zsh vagrant
 #----------------------------------------------------------
 
 #Golang----------------------------------------------------
-mkdir /vagrant/code/go_code
+mkdir /vagrant/projects/go_code
 echo "#GOPATH needed for golang workspace" >> /home/vagrant/.bash_profile
 GOPATH=/vagrant/code/go_code
 echo "export GOPATH=$GOPATH" >> /home/vagrant/.bash_profile
@@ -32,6 +32,7 @@ git config --global core.editor "vim"
 #----------------------------------------------------------
 
 #Chruby Config---------------------------------------------
+mkdir /vagrant/projects/ruby
 echo "#--Chruby--------------------------------" >> /home/vagrant/.bash_profile
 echo "source /usr/local/share/chruby/chruby.sh" >> /home/vagrant/.bash_profile
 echo "source /usr/local/share/chruby/auto.sh" >> /home/vagrant/.bash_profile
