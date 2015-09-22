@@ -15,13 +15,16 @@ chsh -s /bin/zsh vagrant
 
 #Golang----------------------------------------------------
 mkdir /vagrant/projects/go_code
+GOPATH=/vagrant/projects/go_code
+GOROOT=/urs/local/go
 echo "#GOPATH needed for golang workspace" >> /home/vagrant/.bash_profile
-GOPATH=/vagrant/code/go_code
 echo "export GOPATH=$GOPATH" >> /home/vagrant/.bash_profile
+echo "export GOROOT=$GOROOT" >> /home/vagrant/.bash_profile
 echo "export PATH=$PATH:$GOPATH/bin" >> /home/vagrant/.bash_profile
 if [ -f /home/vagrant/.zshrc ]; then
   echo "#GOPATH needed for golang workspace" >> /home/vagrant/.zshrc
-  echo "export GOPATH=/vagrant/code/go_code" >> /home/vagrant/.zshrc
+  echo "export GOPATH=/$GOPATH" >> /home/vagrant/.zshrc
+  echo "export GOROOT=/$GOROOT" >> /home/vagrant/.zshrc
   echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin" >> /home/vagrant/.zshrc
 fi
 #-----------------------------------------------------------
