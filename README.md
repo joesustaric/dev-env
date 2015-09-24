@@ -14,6 +14,6 @@ This uses ansible to just install the tools then runs a ```post_install.sh``` sc
 * Vim
 
 ### What I want
-* Docker
+* Docker (not sure yet though)
 
 ![Homer Hacking](http://asaph.zurds.com/data/images/2012/07/tumblr-m5v9uq55xj1rnx2mvo1-500.gif)

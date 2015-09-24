@@ -43,15 +43,23 @@
       get_url: url=https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz dest=/vagrant/chruby-0.3.9.tar.gz
 
     - name: Extract Chruby
-      command: tar -xzvf /vagrant/chruby-0.3.9.tar.gz
+      command: tar -C /usr/local -xzvf /vagrant/chruby-0.3.9.tar.gz
       sudo: true
 
     - name: Install Chruby
       sudo: true
-      shell: cd chruby-0.3.9/ && make install
+      shell: cd /usr/local/chruby-0.3.9 && make install
 
     - name: Install ruby 2.1.3
       shell: /usr/local/bin/ruby-install ruby 2.1.3
+
+    - name: Allow 'all the ports' for tcp
+      sudo: true
+      shell: firewall-cmd --zone=public --add-port=1-60000/tcp --permanent
+
+    - name: Reload the network thingy
+      sudo: true
+      shell: firewall-cmd --reload
 
     - name: post install script
       script: post_install.sh
