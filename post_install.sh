@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#This is configuration needed for Golang and Chruby for both zsh and bash
+
 # ZSH ------------------------------------------------------
 # Configure zsh
 sudo -u vagrant zsh <<'EOF'
