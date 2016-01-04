@@ -29,11 +29,6 @@ if [ -f /home/vagrant/.zshrc ]; then
 fi
 #-----------------------------------------------------------
 
-#Configure Git---------------------------------------------
-git config --global push.default simple
-git config --global core.editor "vim"
-#----------------------------------------------------------
-
 #Chruby Config---------------------------------------------
 mkdir /vagrant/projects/ruby
 echo "#--Chruby--------------------------------" >> /home/vagrant/.bash_profile

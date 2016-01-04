@@ -17,6 +17,9 @@
         - net-tools
       sudo: true
 
+    - name: configuring git
+      script: config_scripts/git-config.sh
+
     - name: Install npm and node via EPEL yum repo
       yum: name=npm enablerepo=epel state=present
       sudo: true
