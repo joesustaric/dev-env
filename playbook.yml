@@ -25,10 +25,10 @@
       sudo: true
 
     - name: Download Golang 1.5 (not in yum yet)
-      get_url: url=https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz dest=/vagrant/go1.5.linux-amd64.tar.gz
+      get_url: url=https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz dest=/vagrant/go1.5.3linux-amd64.tar.gz
 
     - name: Install Golang
-      command: tar -C /usr/local -xzf /vagrant/go1.5.linux-amd64.tar.gz
+      command: tar -C /usr/local -xzf /vagrant/go1.5.3linux-amd64.tar.gz
       sudo: true
 
     - name: Download Ruby Install
