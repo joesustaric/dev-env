@@ -52,6 +52,6 @@ fi
 #Change to any ruby version-----------------------------------------------------
 echo "chruby ruby" >> /home/vagrant/.bash_profile
 if [ -f /home/vagrant/.zshrc ]; then
-    echo "#chruby ruby" >> /home/vagrant/.zshrc
+    echo "chruby ruby" >> /home/vagrant/.zshrc
 fi
 #-------------------------------------------------------------------------------
