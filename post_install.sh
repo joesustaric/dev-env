@@ -15,6 +15,14 @@ EOF
 chsh -s /bin/zsh vagrant
 #-------------------------------------------------------------------------------
 
+#General stuff------------------------------------------------------------------
+if [ -f /home/vagrant/.zshrc ]; then
+  echo "export PATH=$PATH:/usr/local/bin" >> /home/vagrant/.zshrc
+fi
+
+echo "export PATH=$PATH:/usr/local/bin" >> /home/vagrant/.bash_profile
+#-------------------------------------------------------------------------------
+
 #Golang-------------------------------------------------------------------------
 mkdir /vagrant/projects/go_code
 GOPATH=/vagrant/projects/go_code
