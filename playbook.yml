@@ -20,9 +20,11 @@
 
     - name: Set the timezone to Sydney
       become: yes
-      command: timedatectl set-timezone Australia/Sydney
-      command: chkconfig ntpd on
-      command: ntpdate time.apple.com
+      command: "{{ item }}"
+      with_items:
+          - timedatectl set-timezone Australia/Sydney
+          - chkconfig ntpd on
+          - ntpdate time.apple.com
 
     - name: configuring git
       script: config-scripts/git-config.sh
@@ -41,7 +43,7 @@
 
     - name: Install Ruby Install
       become: yes
-      shell: cd /opt/ruby-install-0.5.0/ && make install
+      command: "chdir=/opt/ruby-install-0.5.0/ make install"
 
     - name: Download Install Chruby
       become: yes
@@ -49,7 +51,7 @@
 
     - name: Install Chruby
       become: yes
-      shell: cd /opt/chruby-0.3.9 && make install
+      command: "chdir=/opt/chruby-0.3.9 make install"
 
     - name: Install ruby 2.2.2
       shell: /usr/local/bin/ruby-install ruby 2.2.2
