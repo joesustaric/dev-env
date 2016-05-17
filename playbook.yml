@@ -6,7 +6,6 @@
 
     - name: Install random tools
       become: yes
-      become_method: sudo
       yum: name={{ item }} state=present update_cache=yes
       with_items:
         - epel-release
@@ -21,7 +20,6 @@
 
     - name: Set the timezone to Sydney
       become: yes
-      become_method: sudo
       command: timedatectl set-timezone Australia/Sydney
       command: chkconfig ntpd on
       command: ntpdate time.apple.com
@@ -31,32 +29,26 @@
 
     - name: Install npm and node via EPEL yum repo
       become: yes
-      become_method: sudo
       yum: name=npm enablerepo=epel state=present
 
     - name: Install Golang 1.6.2 (not in yum)
       become: yes
-      become_method: sudo
       unarchive: src=https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz dest=/usr/local copy=no
 
     - name: Download Ruby Install
       become: yes
-      become_method: sudo
       unarchive: src=https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz dest=/opt copy=no
 
     - name: Install Ruby Install
       become: yes
-      become_method: sudo
       shell: cd /opt/ruby-install-0.5.0/ && make install
 
     - name: Download Install Chruby
       become: yes
-      become_method: sudo
       unarchive: src=https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz dest=/opt copy=no
 
     - name: Install Chruby
       become: yes
-      become_method: sudo
       shell: cd /opt/chruby-0.3.9 && make install
 
     - name: Install ruby 2.2.2
@@ -64,10 +56,8 @@
 
     - name: Install Docker and Docker Compose
       become: yes
-      become_method: sudo
       script: install-scripts/install-docker.sh
 
     - name: Post install script
       become: yes
-      become_method: sudo
       script: config-scripts/post-install.sh
