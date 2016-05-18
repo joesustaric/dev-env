@@ -2,6 +2,7 @@
 
   tasks:
     - name: Upgrade All Packages
+      become: yes
       yum: name=* state=latest
 
     - name: Install random tools
