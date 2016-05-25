@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-
+set -e
 # echo "#Configure Git---------------------------------------------"
-/bin/git config --global push.default simple
-/bin/git config --global color.ui true
-/bin/git config --global core.editor "vim"
-/bin/git config --global alias.lg "log --oneline --decorate --all --graph"
-/bin/git config --global alias.s "status -s"
+git config --global push.default simple
+git config --global color.ui true
+git config --global core.editor "vim"
+git config --global alias.lg "log --oneline --decorate --all --graph"
+git config --global alias.s "status -s"
 #----------------------------------------------------------
