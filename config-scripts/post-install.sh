@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 #This is configuration needed for Golang and Chruby for both zsh and bash
-
 # ZSH --------------------------------------------------------------------------
 # Configure zsh
 sudo -u vagrant zsh <<'EOF'
@@ -12,7 +11,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 EOF
-chsh -s /bin/zsh vagrant
+sudo chsh -s /bin/zsh vagrant
 #-------------------------------------------------------------------------------
 
 #General stuff------------------------------------------------------------------
