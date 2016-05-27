@@ -1,4 +1,4 @@
-- name: Creating the Dev Vm
+- name: Creating Joe's Development Vm
   hosts: all
 
 - name: Install Docker
