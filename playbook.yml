@@ -24,7 +24,6 @@
         - ntp
         - patch
         - npm
-        - golang-1.6
         - nodejs
 
     - name: Set the timezone to Melbourne
@@ -35,6 +34,10 @@
       become: yes
       become_user: vagrant
       script: config-scripts/git-config.sh
+
+    - name: Install Golang 1.6.2
+      become: yes
+      unarchive: src=https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz dest=/usr/local copy=no
 
     - name: Download + Install Ruby Install
       become: yes
