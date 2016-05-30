@@ -56,7 +56,7 @@
       command: chdir=/opt/chruby-0.3.9 make install
 
     - name: Install ruby 2.2.2
-      shell: /usr/local/bin/ruby-install ruby 2.2.2
+      shell: /usr/local/bin/ruby-install ruby 2.3.0
 
     - name: Post install script
       become: yes
