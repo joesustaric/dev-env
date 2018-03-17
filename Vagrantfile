@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
     vb.cpus = 2
   end
 
-  config.vm.synced_folder "~/projects", "/vagrant/projects"
+  config.vm.synced_folder '/Users/joe/my_projects', '/vagrant/projects'
   config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "~/.ssh/id_rsa"
 
   config.vm.provision :ansible do |a|
