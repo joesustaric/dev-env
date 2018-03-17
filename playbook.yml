@@ -11,6 +11,10 @@
     - angstwad.docker_ubuntu
 
   tasks:
+    - name: apt-get upgrade
+      become: yes
+      apt: update_cache=yes upgrade=yes
+
     - name: Install random tools
       become: yes
       apt: name={{ item }} state=present update_cache=yes
