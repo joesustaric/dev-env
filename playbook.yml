@@ -8,7 +8,8 @@
     - docker_group_members:
       - vagrant
   roles:
-    - angstwad.docker_ubuntu
+    - role: angstwad.docker_ubuntu
+      pip_version_pip: '9.0.3'
 
   tasks:
     - name: apt-get upgrade
